@@ -94,7 +94,7 @@ $("condition").textContent=describe(c.weather_code);
 $("feels").textContent="Ощущается как: "+n(c.apparent_temperature)+"°C";
 $("wind").textContent="Ветер: "+n(c.wind_speed_10m)+" км/ч, направление "+n(c.wind_direction_10m)+"°";
 $("humidity").textContent=n(c.relative_humidity_2m)+"%";
-$("rain").textContent=(h.precipitation_probability?.[h.time.indexOf(c.time)]??"—")+"%";
+$("rain").textContent=(h.precipitation_probability?.[h.time.findIndex(t => t.slice(0,13) === c.time.slice(0,13))]??"—")+"%";
 $("gust").textContent=n(c.wind_gusts_10m)+" км/ч";
 $("pressure").textContent=n(c.pressure_msl)+" гПа";
 $("cloud").textContent=n(c.cloud_cover)+"%";
